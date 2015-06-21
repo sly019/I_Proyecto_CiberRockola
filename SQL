@@ -1,0 +1,24 @@
+﻿create table usuarios(
+	id serial not null primary key,
+	nombre varchar not null,
+	contrasena varchar not null,
+	roll  varchar not null
+)
+
+
+﻿create table canciones(
+	id serial not null primary key,
+	nombrecancion varchar not null,
+	artistacancion varchar not null,
+	rutacancion  varchar not null
+)
+
+
+
+
+
+insert into canciones (nombrecancion, artistacancion, rutacancion) values 
+('Epica', 'Cry For The Moon','/Escritorio/1Proyecto/laravelProyecto/1.mp3'),
+('Helloween', 'If I Could Fly','/Escritorio/1Proyecto/laravelProyecto/2.mp3'),
+('Helloween', 'Are you Metal','/Escritorio/1Proyecto/laravelProyecto/3.mp3');
+
