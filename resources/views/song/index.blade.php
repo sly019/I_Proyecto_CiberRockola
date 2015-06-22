@@ -57,7 +57,13 @@
 		@endforelse
 	</table>
 
-	<a href="/songs/create">Nueva Canción</a>	
+	<a href="/songs/create">Nueva Canción</a>	 <br><br><br>
+
+	<div><audio controls height="100" width="100" onended="funcion();">
+   <source src="horse.mp3" type="audio/mpeg">
+   <source src="horse.ogg" type="audio/ogg">
+   <embed height="50" width="100" src="horse.mp3">
+ </audio></div>
 
 		<div class="container">
 			<div class="content">

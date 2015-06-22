@@ -7,32 +7,17 @@ use Illuminate\Http\Request;
 
 class SongsController extends Controller {
 
-	/**
-	 * Display a listing of the resource.
-	 *
-	 * @return Response
-	 */
 	public function index()
 	{
 		$song = \App\Models\Song::all();
 		return view('song/index', compact('song'));
 	}
 
-	/**
-	 * Show the form for creating a new resource.
-	 *
-	 * @return Response
-	 */
 	public function create()
 	{
 		return view('song/agregar');
 	}
 
-	/**
-	 * Store a newly created resource in storage.
-	 *
-	 * @return Response
-	 */
 	public function store()
 	{		
 		$_POST['rutacancion'] = "/home/sly-019/Escritorio/1Proyecto/laravelProyecto/Canciones/".$_POST['rutacancion'];
@@ -42,12 +27,7 @@ class SongsController extends Controller {
 		return redirect('songs');
 	}
 
-	/**
-	 * Show the form for editing the specified resource.
-	 *
-	 * @param  int  $id
-	 * @return Response
-	 */
+
 	public function edit($id)
 	{
 		$song = \App\Models\Song::find($id);
@@ -55,12 +35,7 @@ class SongsController extends Controller {
 
 	}
 
-	/**
-	 * Update the specified resource in storage.
-	 *
-	 * @param  int  $id
-	 * @return Response
-	 */
+
 	public function update($id)
 	{
 		$rutacancion ="";
@@ -79,12 +54,6 @@ class SongsController extends Controller {
 		return redirect('songs');
 	}
 
-	/**
-	 * Remove the specified resource from storage.
-	 *
-	 * @param  int  $id
-	 * @return Response
-	 */
 	public function destroy($id)
 	{
 		//echo $id;
