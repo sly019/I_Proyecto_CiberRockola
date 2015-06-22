@@ -33,15 +33,14 @@
 	<body>
 	<h1>Nueva Canción</h1>
 	{!!Form::open(array('url' => '/songs'))!!}
+		  <label>Selecciona la canción: </label>
+		  <input type="file" name="rutacancion"> <br><br>
 		  <label>Nombre De canción: </label>
 		  <input type="text" name="nombrecancion"><br><br>
 		  <label>Artista: </label>
-		  <input type="text" name="artistacancion"><br><br>
-		  <label>Selecciona la canción: </label><input type="hidden" name="valor" value="si">
-		  <input type="file" name="rutacancion">
-		  <input type="submit">
+		  <input type="text" name="artistacancion"><br><br>		  	
+		  <input type="submit" value= "Crear">
 	{!!Form::close()!!}
-
 		<div class="container">
 			<div class="content">
 				<div class="title">ROCKOLA'S</div>

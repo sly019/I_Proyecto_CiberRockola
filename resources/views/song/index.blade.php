@@ -32,21 +32,21 @@
 	</head>
 	<body>
 		<h1>Listado De Canciones</h1>
-	<table>
+	<table align="center">
 		<tr>
-			<th>Id</th>
 			<th>Autor</th>
+			<th>Canción</th>
 			<th>Acciones</th>
 		</tr>
-		@forelse($song as $categoria)
+		@forelse($song as $Song)
 			<tr>
-				<td>{{{ $categoria->id }}}</td>
-				<td>{{{ $categoria->nombrecancion }}}</td>
+				<td>{{{ $Song->artistacancion }}}</td>
+				<td>{{{ $Song->nombrecancion }}}</td>
 				<td> 
-					<a href="/categories/{{{$categoria->id}}}/edit">Editar</a>
-					<a href="/categories/{{{$categoria->id}}}/articulos">Borrar</a>
-					{!!Form::open(array('url' => "/categories/$categoria->id", 'method' => 'DELETE'))!!}
-						<button>PLAY</button>
+					<a href="/songs/{{{$Song->id}}}/edit">Editar</a>
+					<a href="/SongsCreate/{{{$Song->id}}}/articulos">PLAY</a>
+					{!!Form::open(array('url' => "/songs/$Song->id", 'method' => 'DELETE'))!!}
+						<button>Borrar</button>
 					{!!Form::close()!!}
 				</td>
 			</tr>
@@ -57,8 +57,7 @@
 		@endforelse
 	</table>
 
-	<a href="/SongsCreate">Nueva Canción</a>
-
+	<a href="/songs/create">Nueva Canción</a>	
 
 		<div class="container">
 			<div class="content">

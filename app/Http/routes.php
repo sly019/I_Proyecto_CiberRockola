@@ -13,6 +13,7 @@
 
 //Route::get('/', 'UserController@index');
 Route::get('/', 'WelcomeController@index');
+Route::resource('songs', 'SongsController');
 
 get( '/Login' , [
     'as' => 'User' ,
@@ -29,14 +30,3 @@ get( '/Songs' , [
     'uses' => 'SongsController@index'
 ] );
 
-get( '/SongsCreate' , [
-    'as' => 'User' ,
-    'uses' => 'SongsController@create'
-] );
-
-post( '/Songs' , [
-    'as' => 'User' ,
-    'uses' => 'SongsController@create'
-] );
-
-Route::resource('songs', 'SongsController');
