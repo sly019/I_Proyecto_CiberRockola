@@ -1,25 +1,23 @@
 <!DOCTYPE html>
 <html>
 <head>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
 	<title>Cyber Rockola</title>
-	<style>
-			.de{
-				padding-top: 15px;
-				float: right;
-				padding-right:0px;
-				margin-right:15px;
-				font: bold 14px/14px sans-serif;
-				color: #835B21;
-				background-color:transparent;
-			}		
-		</style>
+	@section('sidebar')
+	<form class="navbar-form pull-right">
+      <div class="">
+		<a href="{{ ('/Login') }}">login</a>
+		<a href="{{ ('/') }}">Inicio</a>
+		<a href="{{ ('/Songs') }}">Canciones</a>
+	 </div>
+	</form>
+    @show
+	
 </head>
-<body>
-
-<div class="de"><a href="{{ ('/Login') }}">login</a>
-       <a href="{{ ('/Register') }}">Registrarse</a>
-        <a href="{{ ('/Songs') }}">Canciones</a>
-        </div>
+	<body>
+	<div class="container">
+            @yield('content')
+	</div>				
 </body>
 </html>
 

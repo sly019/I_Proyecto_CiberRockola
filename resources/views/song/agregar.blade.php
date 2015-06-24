@@ -1,39 +1,13 @@
 <html>
 @extends('layouts.base')
-	<head>
-		<style>
-			body {
-				margin: 0;
-				padding: 0;
-				width: 100%;
-				height: 100%;
-				color: #B0BEC5;
-				display: table;
-				font-weight: 100;
-				font-family: 'Lato';
-			}
-			.container {
-				text-align: center;
-				display: table-cell;
-				vertical-align: middle;
-			}
-			.content {
-				text-align: center;
-				display: inline-block;
-			}
-			.title {
-				font-size: 96px;
-				margin-bottom: 40px;
-			}
-			.quote {
-				font-size: 24px;
-			}
-		</style>
+	<head>	
+@section('sidebar')
 	</head>
+	@section('content')
 	<body>
 	<h1>Nueva Canción</h1>
 	{!!Form::open(array('url' => '/songs'))!!}
-		  <label>Selecciona la canción: </label>
+		  <label>Selecciona la canción: </label> <br><br>
 		  <input type="file" name="rutacancion"> <br><br>
 		  <label>Nombre De canción: </label>
 		  <input type="text" name="nombrecancion"><br><br>
@@ -41,11 +15,6 @@
 		  <input type="text" name="artistacancion"><br><br>		  	
 		  <input type="submit" value= "Crear">
 	{!!Form::close()!!}
-		<div class="container">
-			<div class="content">
-				<div class="title">ROCKOLA'S</div>
-				<div class="quote">{{ Inspiring::quote() }}</div>
-			</div>
-		</div>
 	</body>
+	@stop
 </html>

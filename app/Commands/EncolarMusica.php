@@ -23,12 +23,19 @@ class EncolarMusica extends Command implements SelfHandling, ShouldBeQueued {
 
 	/**
 	 * Execute the command.
-	 *
+	 *run
 	 * @return void
 	 */
 	public function handle()
 	{
-		//
+		$message = "/home/sly-019/Escritorio/1Proyecto/laravelProyecto/Canciones/If I Could Fly - Helloween.mp3";
+		//echo "$message";
+		Queue::push(new EncolarMusica($message));
+		//Queue::push('NotifyController@sendExcluidedParteNotify', compact('parte', 'tipo'));
+
+
+
+
 	}
 
 }

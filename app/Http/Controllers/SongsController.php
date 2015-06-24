@@ -7,9 +7,11 @@ use Illuminate\Http\Request;
 
 class SongsController extends Controller {
 
-	public function index()
+	public function index(Request $request)
 	{
-		$song = \App\Models\Song::all();
+		//dd($request->get('artist'));
+		//$song = \App\Models\Song::orderBy('id', 'DESC')->paginate();
+		$song = \App\Models\Song::name($request->get('name'))->artist($request->get('artist'))->orderBy('artistacancion', 'ASC')->paginate();
 		return view('song/index', compact('song'));
 	}
 
@@ -27,17 +29,24 @@ class SongsController extends Controller {
 		return redirect('songs');
 	}
 
-
 	public function edit($id)
 	{
 		$song = \App\Models\Song::find($id);
+		
 		return view('song/editar', compact('song'));
-
 	}
 
+		public function show()
+	{		
+		$message = "/home/sly-019/Escritorio/1Proyecto/laravelProyecto/Canciones/If I Could Fly - Helloween.mp3";
+		//echo "$message";
+		//Queue::push(new EncolarMusica($message));
+		//shell_exec('play "/home/sly-019/Escritorio/1Proyecto/laravelProyecto/Canciones/If I Could Fly - Helloween.mp3"');
+	}
 
 	public function update($id)
 	{
+
 		$rutacancion ="";
 		$songUpdate = \App\Models\Song::find($id);
 		if (is_null(\Input::get('temp'))) {
@@ -61,5 +70,7 @@ class SongsController extends Controller {
 		$song->delete();
 		return redirect('songs');
 	}
+
+
 
 }
