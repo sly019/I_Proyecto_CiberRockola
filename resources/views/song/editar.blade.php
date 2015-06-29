@@ -1,5 +1,4 @@
 @extends('layouts.base')
-
 <h4>Editar Cancion</h4>
 	{!!Form::open(array('url' => "/songs/$song->id", 'method' => 'PUT'))!!}
 		<label>Selecciona la canción: </label>
@@ -9,5 +8,7 @@
 		<input type="text" name="nombrecancion" value="{{{$song->nombrecancion}}}" ><br><br>
 		<label>Artista: </label>
 		<input type="text" name="artistacancion" value="{{{$song->artistacancion}}}"><br><br>		  	
-		<input type="submit" value= "Actualizar">
+		<input type="submit" value= "Actualizar"> 
+		<input type="button" onClick="location='/songs'" value= "Regresar">
 	{!!Form::close()!!}
+

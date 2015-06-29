@@ -1,11 +1,8 @@
 <html>
-@extends('layouts.base')
 
-@section('sidebar')
-
-@section('content')
  <head>
-	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+	
+	<link href="css/bootstrap.css" rel="stylesheet">
 		  {!! Form::open(['route' => 'songs.index', 'method' => 'GET', 'class' => 'navbar-form navbar-left pull-right', 'role' => 'search']) !!}
 		  <div class="form-group">
 		  {!! Form::text('name', null, ['class' => 'form-control', 'placeholder' => 'Artista' ]) !!}
@@ -17,6 +14,7 @@
 	<body>
 		<div class="container">
 			<h1>Listado De Canciones</h1>
+			<a href="/songs/create">Nueva Canción</a>	
 			<table class="table table-bordered" >
 		<tr>
 			<th>Autor</th>
@@ -28,11 +26,17 @@
 				<td>{{{ $Song->artistacancion }}}</td>
 				<td>{{{ $Song->nombrecancion }}}</td>
 				<td> 
-					<a href="/songs/{{{$Song->id}}}/edit">Editar</a>
-					<a href="/songs/tocar">PLAY</a>
-					{!!Form::open(array('url' => "/songs/$Song->id", 'method' => 'DELETE'))!!}
-						<button>Borrar</button>
-					{!!Form::close()!!}
+					<div id="divForm"> <div class="first-div">{!!Form::open(array('url' => "/songs/$Song->id/edit", 'method' => 'get')) !!}
+						<button class="btnnn btn:hover">Editar</button>
+					{!!Form::close()!!}</div>
+					<div class="second-div">{!!Form::open(array('url' => "/songs/$Song->id", 'method' => 'DELETE'))!!}
+						<button class="btnnn btn:hover">Borrar</button>
+					{!!Form::close()!!}</div>
+					<div class="third-div" >{!!Form::open(array('url' => "/songs/$Song->id/enqueue", 'method' => 'POST'))!!}
+						<button class="btnn btn:hover">Play</button>
+					{!!Form::close()!!}</div>
+					</div>
+					
 				</td>
 			</tr>
 		@empty
@@ -41,9 +45,8 @@
 			</tr>
 		@endforelse
 	</table>
-	<a href="/songs/create">Nueva Canción</a>	 
 		</div>
 	</body>
-	@stop
+
 </html>
 

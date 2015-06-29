@@ -14,6 +14,7 @@
 		  <label>Artista: </label>
 		  <input type="text" name="artistacancion"><br><br>		  	
 		  <input type="submit" value= "Crear">
+		  <input type="button" onClick="location='/songs'" value= "Regresar">
 	{!!Form::close()!!}
 	</body>
 	@stop
